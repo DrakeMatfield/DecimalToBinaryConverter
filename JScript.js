@@ -1,10 +1,7 @@
 'use strict'
-
 var display;
 
-
 function Converter_toBinary(display_id, input_id) {
-
   display = document.getElementById(display_id);
 
   var value = document.getElementById(input_id).value;
@@ -21,19 +18,17 @@ function Converter_toBinary(display_id, input_id) {
     message = "(" + value + ")" + " is invaild input."
     console.error(message);
   }
-
   Display(message);
 }
 
-
 function Converter_toDecimal(display_id, input_id) {
-
   display = document.getElementById(display_id);
 
   var value = document.getElementById(input_id).value;
   var message = "";
 
   console.log("Value enter is: " + value);
+
   if (validate_Input_ofBinary(value)) {
     var result = toDecimal2(value);
     message = value + " decimal is equal to: " + result;
@@ -43,9 +38,7 @@ function Converter_toDecimal(display_id, input_id) {
     message = "(" + value + ")" + " is invaild input of a binary number."
     console.error(message);
   }
-
   Display(message);
-
 }
 
 function validate_Input(value) {
@@ -76,31 +69,22 @@ function validate_Input_ofBinary(value) {
   return valid;
 }
 
-
-
 function is_a_number(value) {
   return !(isNaN(Number(value)));
 }
 
 function is_a_binary_number(value) {
-
   var x;
   var valid = true;
   var checkBit = false;
 
   for (var i = 1; i <= value.length; i++) {
     x = value.charAt(i);
-
     checkBit = ((Number(x) === 0) || (Number(x) === 1));
-
     valid = (valid && checkBit);
-
   }
-
   return valid;
 }
-
-
 
 function is_There_Input(value) {
   return (value.trim() != "");
@@ -125,23 +109,19 @@ function toDecimal(value) {
 }
 
 function toDecimal2(value) {
-
 var x;
 var ans = 0;
-for(var i=1; i <= value.length; i++)
+for(var i=1; i <= value.length; i++) 
 {
-x = value.charAt(value.length-i);
-ans += x * Math.pow(2, i-1);
+  x = value.charAt(value.length-i);
+  ans += x * Math.pow(2, i-1);
 }
 return ans; 
 }
 
-
-
 function Display(text) {
   display.innerHTML = text;
 }
-
 
 function outlined(num) {
   var str = "00000000";
